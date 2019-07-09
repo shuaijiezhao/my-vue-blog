@@ -5,5 +5,5 @@ cd dist
 git init 
 git add .
 git commit -am 'init'
-git remote add origin https://github.com/shuaijiezhao/my-vue-blog.git
+git remote add origin https://github.com/shuaijiezhao/blog-client-preview.git
 git push -f origin master
