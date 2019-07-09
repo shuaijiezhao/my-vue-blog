@@ -16,7 +16,7 @@ export default {
       this.blogs = res.data
       this.total = res.total
       this.page = res.total
-      if (res.data.lengt > 0) {
+      if (res.data.length > 0) {
         this.user = res.data[0].user
       }
     })
