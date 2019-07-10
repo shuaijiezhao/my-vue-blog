@@ -15,17 +15,19 @@ export default {
   },
 
   created() {
-    this.page = parseInt(this.$route.query.page) || 1
-    blog.getBlogsByUserId(this.user.id, { page: this.page })
-      .then(res => {
-        console.log(res)
-        this.page = res.page
-        this.total = res.total
-        this.blogs = res.data
-      })
+    this.getListBlogs()
   },
 
   methods: {
+    getListBlogs() {
+      this.page = parseInt(this.$route.query.page) || 1
+      blog.getBlogsByUserId(this.user.id, { page: this.page })
+        .then(res => {
+          this.page = res.page
+          this.total = res.total
+          this.blogs = res.data
+        })
+    },
     onPageChange(newPage) {
       blog.getBlogsByUserId(this.user.id, { page: newPage }).then(res => {
         this.blogs = res.data
@@ -44,7 +46,9 @@ export default {
         })
         await blog.deleteBlog({ blogId })
         this.$message.success('删除成功')
-        this.blogs = this.blogs.filter(blog => blog.id != blogId)
+        // 这里暂时注释掉，下面虽然简单但是分页不会变化，导致分页出现BUG，解决办法就是再次请求列表信息
+        // this.blogs = this.blogs.filter(blog => blog.id != blogId)
+        await this.getListBlogs()        
       } catch (error) {
         this.$message({
           type: 'info',

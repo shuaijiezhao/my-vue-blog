@@ -1,14 +1,14 @@
 <template>
   <div id="index">
     <section class="blog-posts">
-      <div class="item" v-for="blog in blogs">
+      <div class="item" v-for="blog in blogs" :key="blog.id">
         <figure class="avatar">
           <img :src="blog.user.avatar" :alt="blog.user.username">
           <figcaption>{{blog.user.username}}</figcaption> 
         </figure>
         <h3>
           <router-link :to="`/detail/${blog.id}`">{{blog.title}}</router-link>
-          <span>{{blog.createdAt}}</span>
+          <span>{{friendlyDate(blog.createdAt)}}</span>
         </h3> 
         <p>{{blog.description}}</p>
       </div>

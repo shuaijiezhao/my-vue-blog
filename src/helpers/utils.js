@@ -6,14 +6,14 @@ function friendlyDate(datsStr) {
     let str = ''
 
     switch (true) {
-        case space < 6000:
+        case space < 60000:
             str = '刚刚'
             break
         case space < 1000*3600:
             str = Math.floor(space/60000) + '分钟前'
             break
         case space < 1000*3600*24:
-            str = Math.floor(space/(1000*3500)) + '小时前'
+            str = Math.floor(space/(1000*3600)) + '小时前'
             break
         default: 
             str = Math.floor(space/(1000*3600*24)) + '天前'

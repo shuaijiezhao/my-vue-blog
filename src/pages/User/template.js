@@ -11,6 +11,7 @@ export default {
   },
   created() {
     this.userId = this.$route.params.userId
+    console.log(this.userId)
     this.page = this.$route.query.page || 1
     blog.getBlogsByUserId(this.userId, {page: this.page}).then(res => {
       this.blogs = res.data
