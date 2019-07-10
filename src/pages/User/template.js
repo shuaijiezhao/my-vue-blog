@@ -22,10 +22,9 @@ export default {
       }
     })
   },
-  computed: {
+  methods: {
     onPageChange(newPage) {
       blog.getBlogsByUserId(this.userId, {page: newPage}).then(res => {
-        console.log(res)
         this.blogs = res.data
         this.total = res.total
         this.page = res.page

@@ -17,8 +17,8 @@
       <el-pagination 
         layout="prev, pager, next" 
         :total="total" 
-        @current-change="onPageChange"
-        :current-page="page">
+        :current-page="page"
+        @current-change="onPageChange">        
       </el-pagination>
     </section>
   </div>

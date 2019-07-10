@@ -5,15 +5,15 @@
       <h3>{{user.username}}</h3>
     </section>
     <section>
-      <router-link class="item" v-for="blog in blogs" :key="blog.id" :to="`/detail/${blog.id}`">
+      <div class="item" v-for="blog in blogs" :key="blog.id">
         <div class="date">
           <span class="day">{{splitDate(blog.createdAt).date}}</span>
           <span class="month">{{splitDate(blog.createdAt).month}}月</span>
           <span class="year">{{splitDate(blog.createdAt).year}}</span>
         </div>
-        <h3>{{blog.title}}</h3>
+        <h3><router-link :to="`/detail/${blog.id}`">{{blog.title}}</router-link></h3>
         <p>{{blog.description}}</p>
-      </router-link>
+      </div>
     </section>
     <section class="pagination">
       <el-pagination
