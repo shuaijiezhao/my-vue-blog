@@ -16,7 +16,7 @@ export default {
     blog.getBlogsByUserId(this.userId, {page: this.page}).then(res => {
       this.blogs = res.data
       this.total = res.total
-      this.page = res.total
+      this.page = res.page
       if (res.data.length > 0) {
         this.user = res.data[0].user
       }

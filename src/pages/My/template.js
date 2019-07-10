@@ -28,6 +28,7 @@ export default {
           this.blogs = res.data
         })
     },
+    
     onPageChange(newPage) {
       blog.getBlogsByUserId(this.user.id, { page: newPage }).then(res => {
         this.blogs = res.data
